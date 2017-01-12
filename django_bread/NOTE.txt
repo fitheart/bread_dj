@@ -1,0 +1,76 @@
+
+
+Ghi lai nhung ghi nho can thiet
+
+- Quy trinh 1: Lam viec form
+Co cac cach de lam viec voi Form
+
+forms.py
+- Ke thua tu forms.Form
+  + Su dung cac truong co ban nhu:
+  Vi du
+  class RegisterForm(forms.Form):
+    username = forms.CharField(label='Username', max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+
+- Ke thua tu forms.ModelForm
+   + Khai bao class Meta
+  co cac truong sau
+
+     - model
+- fields
+- error_messages
+- help_texts
+- exclude (tất cả trừ trường này)
+- initial
+- widgets
+
+Vi du
+class AuthorForm(ModelForm):
+    class Meta:
+        model = Question
+        fields = ['question_text', 'pub_date']
+        labels = {
+            'question_text': ('Writer'),
+        }
+        help_texts = {
+            'question_text': ('Some useful help text.'),
+        }
+        error_messages = {
+            'question_text': {
+                'max_length': ("This writer's name is too long."),
+            },
+        }
+
+
+
+- Thong qua ListView, CreateView,
++ Khai bao cac truong
+- model
+- fields
+- template_name = 'sigin.html'
+-  form_class = ContactForm
+-  success_url = '/thanks/'
+- initial = {'key': 'value'}
+Ngoai ra con co cac ham
+form_valid: Goi khi form duoc posted
+get_object(): de loc nhung objects nao muon hien thi
+queryset = Foo.objects.all() : De locj nhung object nao muon hien thi
+
+Vi du
+class AuthorCreate(CreateView):
+    model = Author
+    fields = ['name']
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super(AuthorCreate, self).form_valid(form)
+
+
+Trong file urls mapping no
+url(r'^sigin/', views.AuthorCreate.as_view(), name='sigin'),
+Va file html thi co the su dung object_list mac dinh. Nhugn cach hay la khai bao
+context_object_name = 'my_objs' trong class View, do do co the su dung my_objs
+
+Chu y neu khong dang ky template_name trong View thi mac dinh se la
+model_form.html Vi du , nhu tren la autho_form.html

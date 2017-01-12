@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load static %}
+
+
+
+{% block body %}
+    <h2>Test loop</h2>
+    <ul>
+    {% for foo in question.questions %}
+    <li>{{ foo.question_text}} - {{ foo.pub_date }}</li>
+    {% endfor %}
+    </ul>
+    
+<section class="slider">
+  <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="item">
+            <img data-src= "{% static "bread/images/slider/image_1920x780.jpg" %}"  alt="First slide" src="{% static "bread/images/slider/image_1920x780.jpg" %}">
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Curabitur sollicitudin tellus nulla, non rhoncus </h1>
+            <p>Amet egestas nisi suscipit nec. Cras ac eros viverra, hendrerit dui ut.</p>
+            <p><a class="btn btn-default btn-lg" href="#" role="button">try now</a><a class="btn btn-default btn-lg" href="#" role="button">details</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="item active"> <img data-src="{% static 'bread/images/slider/image_1920x780.jpg' %}" alt="Second slide"
+                                     src="{% static "bread/images/slider/image_1920x780.jpg" %}">
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Metus et placerat venenatis, mauris diam ornare neque </h1>
+            <p>Odio sed lobortis mollis, lacus quam ullamcorper orci, id volutpat dolor erat vel nisl.</p>
+            <p><a class="btn btn-default btn-lg" href="#" role="button">get started</a><a class="btn btn-default btn-lg" href="#" role="button">read more</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon carousel-control-left"></span></a> <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon carousel-control-right"></span></a> </div>
+</section>
+<!--end of slider section-->
+<section class="main__middle__container">
+  <div class="row text-center no-margin">
+    <div class="container">
+      <h1 class="page_title">Praesent nibh odio, porttitor</h1>
+      <p class="big-paragraph">Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <p class="small-paragraph">Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada in, tristique at erat lorem ipsum dolor sit amet lorem ipsum</p>
+      <p class="relative_btn"><a class="btn btn-default btn-lg" href="#" role="button">read more</a> 
+    </div>
+  </div>
+  <div class="row icons__blocks three__blocks text-center">
+    <div class="container">
+      <h2><span>Products & Services</span></h2>
+      <p class="small-paragraph">Integer vitae libero ac risus egestas placerat.</p>
+      <div class="col-md-4">
+        <h3><a href="#">Modern Design</a></h3>
+        <p class="smaller"><small>Vestibulum auctor dapibus neque.</small></p>
+        <img src="{% static 'bread/images/content__images/image_300x190.jpg' %}" alt="image" class="img-responsive img-rounded">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
+      </div>
+      <div class="col-md-4 middle">
+        <h3><a href="#">High Quality</a></h3>
+        <p class="smaller"><small>Vestibulum auctor dapibus neque.</small></p>
+        <img src="{% static 'bread/images/content__images/image_300x190.jpg' %}"  class="img-responsive img-rounded">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
+      </div>
+      <div class="col-md-4">
+        <h3><a href="#">Quick Support</a></h3>
+        <p class="smaller"><small>Vestibulum auctor dapibus neque.</small></p>
+        <img src="{% static 'bread/images/content__images/image_300x190.jpg' %}" alt="image" class="img-responsive img-rounded">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
+      </div>
+    </div>
+  </div>
+  <div class="text-center three-blocks">
+    <div class="container">
+      <div class="row">
+        <h2 class="">Praesent semper mod quis eget mi. Etiam euante risus. Aliquam erat volutpat. </h2>
+        <p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus. Praesent semper mod quis eget mi. Etiam eu
+          ante risus. Aliquam erat volutpat. Aliquam luctus et mattis lectus amet pulvinar. Nam nec turpis consequat.</p>
+      </div>
+    </div>
+  </div>
+  <div class="row no-margin grey-info-block text-center">
+    <div class="container">
+      <h2><span>who are we?</span></h2>
+      <p class="small-paragraph">Integer vitae libero ac risus egestas placerat.</p>
+      <div class="col-md-6">
+        <h3>Commodo id natoque malesuada 
+          sollicitudin elit suscipit.</h3>
+        <p class="small-paragraph light">Praesent semper mod quis eget mi. Etiam eu ante risus.</p>
+        <img src="{% static 'bread/images/content__images/image_460x200.jpg' %}" alt="pic" class="img-rounded">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        <p><a href="#" class="btn btn-default btn-md">Learn more</a></p>
+      </div>
+      <div class="col-md-6">
+        <h3>Aliquam luctus et mattis lectus Nam nec turpis consequat.</h3>
+        <p class="small-paragraph light">Praesent semper mod quis eget mi. Etiam eu ante risus.</p>
+        <img src="{% static 'bread/images/content__images/image_460x200.jpg' %}" alt="pic" class="img-rounded">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        <p><a href="#" class="btn btn-default btn-md">Learn more</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="row no-margin no_padding grey-info-block text-center"> </div>
+
+<script type="text/javascript">
+$('.carousel').carousel({
+  interval: 3500, // in milliseconds
+  pause: 'none' // set to 'true' to pause slider on mouse hover
+})
+</script>
+{% endblock %}

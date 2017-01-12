@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load static %}
+{% block body %}
+
+    <div class="container">
+    <div class="col-sm-12">
+         {% for article in articles  %}
+        <a href ="{% url 'index' %}" >{{ article.title }}</a>
+
+        <div>
+            {{ article.content }}
+        </div>
+        <label>Created by: {{ article.created_by }}</label><br>
+        {% endfor %}
+    </div>
+    </div>
+
+
+
+
+{% endblock %}
